@@ -1,0 +1,32 @@
+{
+  "name": "Task",
+  "plural": "Tasks",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "status": {
+      "type": "string",
+      "required": true
+    },
+    "dueDate": {
+      "type": "date"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "project": {
+      "type": "belongsTo",
+      "model": "Project",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

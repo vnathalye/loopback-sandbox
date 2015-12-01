@@ -1,0 +1,25 @@
+{
+    "name": "Team",
+    "plural": "teams",
+    "base": "PersistedModel",
+    "idInjection": true,
+    "options": {
+        "validateUpsert": true
+    },
+    "properties": { },
+    "validations": [ ],
+    "relations": {
+        "project": {
+            "type": "belongsTo",
+            "model": "Project",
+            "foreignKey": "projectId"
+        },
+        "member": {
+            "type": "belongsTo",
+            "model": "Member",
+            "foreignKey": "memberId"
+        }
+    },
+  "acls": [],
+  "methods": {}
+}

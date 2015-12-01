@@ -1,0 +1,66 @@
+{
+    "name": "Project",
+    "plural": "Projects",
+    "base": "PersistedModel",
+    "idInjection": true,
+    "options": {
+        "validateUpsert": true
+    },
+    "properties": {
+        "name": {
+            "type": "string",
+            "required": true
+        },
+        "description": {
+            "type": "string"
+        }
+    },
+    "validations": [ ],
+    "relations": {
+        "tasks": {
+            "type": "hasMany",
+            "model": "Task",
+            "foreignKey": ""
+        },
+        "members": {
+            "type": "hasMany",
+            "model": "Member",
+            "foreignKey": "projectId",
+            "through": "Team"
+        },
+        "teams": {
+            "type": "hasMany",
+            "model": "Team",
+            "foreignKey": "projectId"
+        }
+    },
+    "acls": [
+        {
+          "accessType": "*",
+          "principalType": "ROLE",
+          "principalId": "$everyone",
+          "permission": "DENY",
+          "property": "__get__Tasks"
+        },
+        {
+          "accessType": "*",
+          "principalType": "ROLE",
+          "principalId": "$everyone",
+          "permission": "DENY",
+          "property": "__get__tasks"
+        },
+        {
+            "principalType": "ROLE",
+            "principalId": "teamMember",
+            "permission": "ALLOW",
+            "property": "__get__Tasks"
+        },
+        {
+            "principalType": "ROLE",
+            "principalId": "teamMember",
+            "permission": "ALLOW",
+            "property": "__get__tasks"
+        }
+    ],
+  "methods": {}
+}

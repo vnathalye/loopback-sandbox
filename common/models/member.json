@@ -1,0 +1,26 @@
+{
+  "name": "Member",
+  "plural": "Members",
+  "base": "User",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {},
+  "validations": [],
+  "relations": {
+    "projects": {
+      "type": "hasMany",
+      "model": "Project",
+      "foreignKey": "memberId",
+      "through": "Team"
+    },
+    "teams": {
+      "type": "hasMany",
+      "model": "Team",
+      "foreignKey": "memberId"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

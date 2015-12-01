@@ -1,0 +1,24 @@
+﻿<div class="row">
+    <div class="col-xs-9">
+        <h3>View All Projects</h3>
+    </div>
+</div>
+<div ng-hide="projects.length > 0">
+    There are no societies to show.
+</div>
+<div ng-show="projects.length > 0">
+    <div class="row">
+        <div class="col-xs-2">ID</div>
+        <div class="col-xs-7">Project Name</div>
+        <div class="col-xs-3">&nbsp;</div>
+    </div>
+    <div class="row" ng-repeat="project in projects | orderBy:'-id'">
+        <div class="col-xs-2">
+            {{project.id}}
+        </div>
+        <div class="col-xs-7">
+            <a ui-sref="projectView({id:project.id})">{{project.name}}</a>
+        </div>
+        <div class="col-xs-3">&nbsp;</div>
+    </div>
+</div>

@@ -1,0 +1,22 @@
+﻿<div class="row">
+    <div class="col-xs-4">Project ID</div>
+    <div class="col-xs-8">{{project.id}}</div>
+</div>
+<div class="row">
+    <div class="col-xs-4">Project Name</div>
+    <div class="col-xs-8">{{project.name}}</div>
+</div>
+<h3>
+    Tasks
+</h3>
+<div ng-hide="project.tasks.length > 0">
+    There are no tasks to show.
+</div>
+<div class="panel-group" ng-show="project.tasks.length > 0">
+    <div class="panel panel-info" ng-repeat="task in project.tasks | limitTo:3">
+        <div class="panel-heading">
+            {{task.name}}
+        </div>
+        <div class="panel-body">{{task.status}}</div>
+    </div>
+</div>
